@@ -7,6 +7,7 @@ namespace Domain.Models.Boards
     public sealed class Sprint
     {
         public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid BoardId { get; set; }
 
         public DateTime Starts { get; set; }
         public DateTime Ends { get; set; }

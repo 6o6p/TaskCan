@@ -18,7 +18,8 @@ namespace Front
         public void ConfigureServices(IServiceCollection services)
         {
             //Добавляем в DI контейнер реализацию интерфейса
-            services.AddSingleton<IDataContext, TestDataContext>();
+            // services.AddSingleton<IDataContext, TestDataContext>();
+            services.AddSingleton<IDataContext, DatabaseDataContext>();
         }
 
         // В этом методе выстраивается конвейер обработки запросов на сервер

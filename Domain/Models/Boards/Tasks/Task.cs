@@ -7,6 +7,7 @@ namespace Domain.Models.Boards.Tasks
     public sealed class Task
     {
         public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid SectionId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         
