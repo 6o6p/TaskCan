@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using DataAccess.Models.Boards;
+using DataAccess.Models.Sections;
+using DataAccess.Models.Sprints;
 using DataAccess.Models.Teams;
-using Domain.Models.Boards.Tasks;
+using Domain.Models.Tasks;
 
-namespace DataAccess.Models.Boards.Tasks
+namespace DataAccess.Models.Tasks
 {
     [Table("Tasks")]
     internal sealed class TaskEntity : Entity

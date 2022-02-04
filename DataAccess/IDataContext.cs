@@ -4,6 +4,7 @@ namespace DataAccess
 {
     public interface IDataContext
     {
+        void AddBoard(Board board);
         Board GetBoard();
     }
 }

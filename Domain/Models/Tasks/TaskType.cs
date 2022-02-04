@@ -1,4 +1,4 @@
-﻿namespace Domain.Models.Boards.Tasks
+﻿namespace Domain.Models.Tasks
 {
     public enum TaskType
     {

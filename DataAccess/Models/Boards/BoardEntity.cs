@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using DataAccess.Models.Sections;
+using DataAccess.Models.Sprints;
 using DataAccess.Models.Teams;
 
 namespace DataAccess.Models.Boards

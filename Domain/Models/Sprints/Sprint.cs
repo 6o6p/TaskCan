@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Domain.Models.Boards.Tasks;
+using Domain.Models.Boards;
+using Domain.Models.Tasks;
 
-namespace Domain.Models.Boards
+namespace Domain.Models.Sprints
 {
     public sealed class Sprint
     {

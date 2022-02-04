@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DataAccess;
-using Front.Test;
+using Domain.Models.Boards;
+using Domain.Models.Teams;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,7 +16,9 @@ namespace Front
         {
             //Добавляем в DI контейнер реализацию интерфейса
             // services.AddSingleton<IDataContext, TestDataContext>();
-            services.AddSingleton<IDataContext, DatabaseDataContext>();
+            //Если нужно особым образом инициализировать реализацию, то можно сделать это так
+            //В данном случае будет использована БД в памяти
+            services.AddSingleton<IDataContext, DatabaseDataContext>(_ => new DatabaseDataContext(true));
         }
 
         // В этом методе выстраивается конвейер обработки запросов на сервер
@@ -38,6 +37,12 @@ namespace Front
                 {
                     //Получаем DataContext из DI. Затем достаем объект и сериализуем его в JSON 
                     var dataContext = app.ApplicationServices.GetService<IDataContext>();
+                    dataContext?.AddBoard(new Board
+                    {
+                        Title = "Test Board",
+                        Description = "Learning domain models",
+                        Owner = new User {Name = "Calimber"},
+                    });
                     await context.Response.WriteAsync(JsonConvert.SerializeObject(
                         dataContext?.GetBoard(),
                         Formatting.Indented,

@@ -1,5 +1,7 @@
 ﻿using DataAccess.Models.Boards;
-using DataAccess.Models.Boards.Tasks;
+using DataAccess.Models.Sections;
+using DataAccess.Models.Sprints;
+using DataAccess.Models.Tasks;
 using DataAccess.Models.Teams;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,8 +14,9 @@ namespace DataAccess
         public DbSet<SprintEntity> Sprints { get; set; }
         public DbSet<TaskEntity> Tasks { get; set; }
         public DbSet<UserEntity> Users { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=sudo");
+        
+        public PostgreContext(DbContextOptions<PostgreContext> options): base(options)
+        {
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Domain.Models.Sections;
+using Domain.Models.Sprints;
 using Domain.Models.Teams;
 
 namespace Domain.Models.Boards

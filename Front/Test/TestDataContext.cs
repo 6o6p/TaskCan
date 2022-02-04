@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using DataAccess;
 using Domain.Models.Boards;
-using Domain.Models.Boards.Tasks;
+using Domain.Models.Sections;
+using Domain.Models.Sprints;
+using Domain.Models.Tasks;
 using Domain.Models.Teams;
 
 namespace Front.Test
 {
     internal class TestDataContext : IDataContext
     {
+        public void AddBoard(Board board)
+        {
+            //New board is added))))
+        }
+
         public Board GetBoard()
         {
             var user = new User {Name = "John"};

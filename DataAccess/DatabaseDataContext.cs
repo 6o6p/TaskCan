@@ -1,4 +1,7 @@
 ﻿using System.Linq;
+using DataAccess.ContextFactories;
+using DataAccess.Models.Boards;
+using DataAccess.Models.Teams;
 using Domain.Models.Boards;
 
 namespace DataAccess
@@ -7,9 +10,29 @@ namespace DataAccess
     {
         private PostgreContext _context;
 
-        public DatabaseDataContext()
+        public DatabaseDataContext(bool inMemory)
         {
-            _context = new PostgreContext();
+            //Для простоты примера используем параметр inMemory
+            //В реальном проекте следовало бы передавать IContextFactory в параметре и просто вызвать CreateContext()
+            _context = inMemory 
+                ? new InMemoryContextFactory().CreateContext()
+                : new DatabaseContextFactory().CreateContext();
+        }
+        
+        public void AddBoard(Board board)
+        {
+            _context.Add(new BoardEntity
+            {
+                Id = board.Id,
+                UserId = board.UserId,
+                Title = board.Title,
+                Description = board.Description,
+                Owner = new UserEntity
+                {
+                    Name = board.Owner.Name,
+                },
+            });
+            _context.SaveChanges();
         }
 
         public Board GetBoard()

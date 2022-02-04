@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using DataAccess.Models.Boards.Tasks;
+using DataAccess.Models.Boards;
+using DataAccess.Models.Tasks;
 
-namespace DataAccess.Models.Boards
+namespace DataAccess.Models.Sections
 {
     [Table("Sections")]
     internal sealed class SectionEntity : Entity 
